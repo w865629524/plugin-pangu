@@ -43,9 +43,6 @@ public class PanGuHeadProcessor implements TemplateHeadProcessor {
                 <script src="/plugins/PluginPanGu/assets/static/pangu/4.0.7/pangu.min.js"></script>
                 <script>
                     %s
-                    document.addEventListener("DOMContentLoaded",  function() {
-                       pangu.autoSpacingPage();
-                    })
                 </script>
                                 
                 """.formatted(config.getContent());
