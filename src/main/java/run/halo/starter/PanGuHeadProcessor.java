@@ -48,7 +48,6 @@ public class PanGuHeadProcessor implements TemplateHeadProcessor {
                        pangu.autoSpacingPage();
                     })
                 </script>
-                                
                 """.formatted(content);
         } else {
             return """
@@ -56,7 +55,6 @@ public class PanGuHeadProcessor implements TemplateHeadProcessor {
                 <script>
                     %s
                 </script>
-                                
                 """.formatted(content);
         }
     }
