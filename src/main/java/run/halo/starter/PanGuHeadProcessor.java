@@ -39,13 +39,26 @@ public class PanGuHeadProcessor implements TemplateHeadProcessor {
     private String tocbotScript(BasicConfig config) {
 
         // language=html
-        return """
+        String content = config.getContent();
+        if(StringUtils.isBlank(content)) {
+            return """
+                <script src="/plugins/PluginPanGu/assets/static/pangu/4.0.7/pangu.min.js"></script>
+                <script>
+                    document.addEventListener("DOMContentLoaded",  function() {
+                       pangu.autoSpacingPage();
+                    })
+                </script>
+                                
+                """.formatted(content);
+        } else {
+            return """
                 <script src="/plugins/PluginPanGu/assets/static/pangu/4.0.7/pangu.min.js"></script>
                 <script>
                     %s
                 </script>
                                 
-                """.formatted(config.getContent());
+                """.formatted(content);
+        }
     }
 
 
